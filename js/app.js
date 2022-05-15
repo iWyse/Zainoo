@@ -3853,6 +3853,7 @@
                 onlyInViewport: true,
                 pageUpDown: true
             },
+            spaceBetween: 200,
             mousewheel: true,
             slidesPerView: 1,
             pagination: {
@@ -3916,6 +3917,41 @@
     window.onresize = function() {
         if (this.innerWidth > 991) if (menu.classList.contains("active")) toggleMenu();
     };
+    const popupVideo_frame = document.querySelector(".frame");
+    const video = document.querySelector(".video");
+    const src = video.dataset.src;
+    const openEls = document.querySelectorAll("[data-open]");
+    const closeEls = document.querySelectorAll("[data-close]");
+    const isVisible = "is-visible";
+    window.addEventListener("DOMContentLoaded", (function() {
+        document.querySelectorAll(".button__watch").forEach((function(clickToFrame) {
+            clickToFrame.addEventListener("click", (function(e) {
+                video.classList.add("active");
+                popupVideo_frame.classList.add("frame-active");
+                video.innerHTML = "<iframe src=" + src + ' frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }));
+        }));
+    }));
+    function stopPopup() {
+        document.querySelector(".modal.is-visible").classList.remove(isVisible);
+        document.documentElement.classList.remove("lock");
+        video.innerHTML = null;
+        popupVideo_frame.classList.remove("frame-active");
+    }
+    for (const el of openEls) el.addEventListener("click", (function() {
+        const modalId = this.dataset.open;
+        document.getElementById(modalId).classList.add(isVisible);
+        document.documentElement.classList.add("lock");
+    }));
+    for (const el of closeEls) el.addEventListener("click", (function() {
+        stopPopup();
+    }));
+    document.addEventListener("click", (e => {
+        if (e.target == document.querySelector(".modal.is-visible")) stopPopup();
+    }));
+    document.addEventListener("keyup", (e => {
+        if ("Escape" == e.key && document.querySelector(".modal.is-visible")) stopPopup();
+    }));
     function DynamicAdapt(type) {
         this.type = type;
     }

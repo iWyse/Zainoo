@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-	<title>Hello Wyse</title>
+	<title>Zainoo</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20220513183718">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220515165912">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -62,17 +62,18 @@
 							<h2 class="learn__title"><span>Extra</span>Foot
 								<span>Care</span>Tech
 							</h2>
-							<div class="learn__button">learn more</div>
+							<div class="learn__button"><a href="#">learn more</a></div>
 						</div>
 					</div>
 				</div>
+
 				<div class="gallery">
 					<div class="gallery__slider swiper">
 						<div class="gallery__wrapper swiper-wrapper">
 							<div class="gallery__slide swiper-slide">
 								<div class="gallery__content">
 									<h2 class="gallery__subtitle">The best looks; Top Comfort</h2>
-									<h1 class="gallery__title">Comfy Maxer</h1>
+									<h1 class="gallery__title _icon-trademark">Comfy Maxer</h1>
 									<p class="gallery__description">
 										Our shoes fuse together an insole that cushions every move, laces that you’ll never
 										need
@@ -81,8 +82,8 @@
 										and an odor-fighting copper thread lining.
 									</p>
 									<div class="gallery__buttons">
-										<button type="submit" class="button__buy _icon-cart button">Add To Cart</button>
-										<button type="submit" class="button__watch _icon-play button">Watch Intro</button>
+										<button type="button" class="button__buy _icon-cart button">Add To Cart</button>
+										<button type="button" class="button__watch open-modal _icon-play button" data-open="modal1">Watch Intro</button>
 									</div>
 								</div>
 								<div class="gallery__image">
@@ -92,7 +93,7 @@
 							<div class="gallery__slide swiper-slide">
 								<div class="gallery__content">
 									<h2 class="gallery__subtitle">The best looks; Top Comfort</h2>
-									<h1 class="gallery__title">Comfy Maxer</h1>
+									<h1 class="gallery__title _icon-trademark">Comfy Maxer</h1>
 									<p class="gallery__description">
 										Our shoes fuse together an insole that cushions every move, laces that you’ll never
 										need
@@ -102,17 +103,18 @@
 									</p>
 									<div class="gallery__buttons">
 										<button type="submit" class="button__buy _icon-cart button">Add To Cart</button>
-										<button type="submit" class="button__watch _icon-play button">Watch Intro</button>
+										<button type="button" class="button__watch open-modal _icon-play button" data-open="modal2">Watch Intro</button>
 									</div>
 								</div>
 								<div class="gallery__image">
 									<picture><source srcset="img/gallery/image2.webp" type="image/webp"><img src="img/gallery/image2.png" alt="gallery picture"></picture>
 								</div>
+
 							</div>
 							<div class="gallery__slide swiper-slide">
 								<div class="gallery__content">
 									<h2 class="gallery__subtitle">The best looks; Top Comfort</h2>
-									<h1 class="gallery__title">Comfy Maxer</h1>
+									<h1 class="gallery__title _icon-trademark">Comfy Maxer</h1>
 									<p class="gallery__description">
 										Our shoes fuse together an insole that cushions every move, laces that you’ll never
 										need
@@ -122,7 +124,7 @@
 									</p>
 									<div class="gallery__buttons">
 										<button type="submit" class="button__buy _icon-cart button">Add To Cart</button>
-										<button type="submit" class="button__watch _icon-play button">Watch Intro</button>
+										<button type="button" class="button__watch open-modal _icon-play button" data-open="modal1">Watch Intro</button>
 									</div>
 								</div>
 								<div class="gallery__image">
@@ -134,6 +136,26 @@
 					</div>
 				</div>
 			</div>
+			<section class="frame">
+				<div class="modal" id="modal1" data-animation="slideInOutLeft">
+					<div class="modal-dialog">
+						<button class="close-modal _icon-close" aria-label="close modal" data-close></button>
+						<section class="modal-container">
+							<div class="video" id="modal1" data-src="https://www.youtube.com/embed/aqgyhk2TGfs?autoplay=1">
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="modal" id="modal2" data-animation="slideInOutLeft">
+					<div class="modal-dialog">
+						<button class="close-modal _icon-close" aria-label="close modal" data-close></button>
+						<section class="modal-container">
+							<div class="video" id="modal2" data-src="https://www.youtube.com/embed/2vNqaeIKapg?autoplay=1">
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
 	</div>
 	</main>
 	<footer class="footer">
@@ -141,7 +163,7 @@
 		</div>
 	</footer>
 	</div>
-	<script src="js/app.min.js?_v=20220513183718"></script>
+	<script src="js/app.min.js?_v=20220515165912"></script>
 </body>
 
 </html>
