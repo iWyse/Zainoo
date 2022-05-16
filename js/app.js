@@ -4048,6 +4048,12 @@
     };
     const da = new DynamicAdapt("max");
     da.init();
+    const searchButton = document.querySelector(".search-box__button");
+    const searchInput = document.querySelector(".search-box__input");
+    searchButton.addEventListener("click", (function(e) {
+        searchInput.classList.toggle("search-box__input--active");
+        document.querySelector(".search-box__input").value = "";
+    }));
     window["FLS"] = true;
     isWebp();
 })();
