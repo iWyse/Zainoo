@@ -3898,7 +3898,7 @@
     const menuOverlay = document.querySelector(".overlay");
     menuList.addEventListener("click", (e => {
         if (!menu.classList.contains("active")) return;
-        if (e.target.closest(".menu-item")) toggleMenu();
+        if (e.target.closest(".menu-item") || e.target.closest(".sidebar__item")) toggleMenu();
     }));
     menuToggle.addEventListener("click", (() => {
         toggleMenu();
