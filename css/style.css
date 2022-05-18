@@ -500,7 +500,7 @@ a:focus-visible,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  z-index: 88;
+  z-index: 90;
 }
 
 .menu-body .menu-list {
@@ -547,54 +547,6 @@ a:focus-visible,
   font-size: 1.25rem;
 }
 
-.menu-body .menu > ul > li .menu-subs {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  margin-top: 1.75rem;
-  padding: 1rem 2rem;
-  z-index: 109;
-  opacity: 0;
-  visibility: hidden;
-  border-radius: 0.25rem;
-  border-top: 3px solid #c40b0b;
-  background: #fff;
-  -webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.menu-body .menu > ul > li .menu-subs > ul > li {
-  line-height: 1;
-}
-
-.menu-body .menu > ul > li .menu-subs > ul > li > a {
-  display: inline-block;
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.25;
-  padding: 0.75rem 0;
-  border: none;
-  outline: none;
-  color: #000;
-  text-transform: capitalize;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.menu-body .menu > ul > li .menu-subs > ul > li > a:hover {
-  color: #c40b0b;
-}
-
-.menu-body .menu > ul > li .menu-column-1 {
-  min-width: 16rem;
-  max-width: 20rem;
-}
-
 .menu-body .menu > ul > li:hover > a {
   color: #c40b0b;
 }
@@ -603,66 +555,6 @@ a:focus-visible,
 .menu-body .menu-mobile-toggle {
   font-size: 1.875rem;
   display: none;
-}
-
-.menu__button {
-  display: none;
-}
-
-@-webkit-keyframes slideLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  }
-}
-
-@keyframes slideLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  }
-}
-
-@-webkit-keyframes slideRight {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-  }
-}
-
-@keyframes slideRight {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-  }
 }
 
 body,
@@ -1750,12 +1642,6 @@ button.swiper-pagination-bullet {
     display: none;
   }
 
-  .menu-body .menu > ul > li.menu-item-has-children:hover .menu-subs {
-    margin-top: 0.5rem;
-    opacity: 1;
-    visibility: visible;
-  }
-
   .gallery {
     max-height: 90vh;
   }
@@ -1854,16 +1740,6 @@ button.swiper-pagination-bullet {
 
   .menu-body .menu-item-home {
     display: block;
-  }
-
-  .menu__button {
-    text-align: center;
-    display: block;
-    padding-top: 50px;
-  }
-
-  .header__button {
-    display: none;
   }
 
   .menu__wrapper {
@@ -1966,31 +1842,9 @@ button.swiper-pagination-bullet {
     background: #fff;
   }
 
-  .menu-body .menu .menu-mobile-header .menu-mobile-arrow {
-    display: none;
-  }
-
-  .menu-body .menu .menu-mobile-header.active .menu-mobile-arrow {
-    display: block;
-    font-size: 1.25rem;
-    line-height: 3.125rem;
-    width: 3.125rem;
-    height: 3.125rem;
-    cursor: pointer;
-    text-align: center;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .menu-body .menu .menu-mobile-header .menu-mobile-title {
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: inherit;
-    color: #000;
-    text-transform: capitalize;
-  }
-
   .menu-body .menu .menu-mobile-header .menu-mobile-close {
+    position: absolute;
+    right: 0;
     font-size: 2.25rem;
     line-height: 3.125rem;
     cursor: pointer;
@@ -2100,6 +1954,10 @@ button.swiper-pagination-bullet {
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+  }
+
+  .sidebar__list {
+    padding-top: 50px;
   }
 
   .sidebar__link--new::before {
