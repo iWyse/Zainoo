@@ -706,7 +706,6 @@ html {
 }
 
 .gallery {
-  border: 2px solid red;
   margin-top: 70px;
   display: -webkit-box;
   display: -ms-flexbox;

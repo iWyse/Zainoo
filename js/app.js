@@ -3947,10 +3947,10 @@
         stopPopup();
     }));
     document.addEventListener("click", (e => {
-        if (e.target == document.querySelector(".modal.is-visible")) stopPopup();
+        if (e.target === document.querySelector(".modal.is-visible")) stopPopup();
     }));
     document.addEventListener("keyup", (e => {
-        if ("Escape" == e.key && document.querySelector(".modal.is-visible")) stopPopup();
+        if ("Escape" === e.key && document.querySelector(".modal.is-visible")) stopPopup();
     }));
     function DynamicAdapt(type) {
         this.type = type;
