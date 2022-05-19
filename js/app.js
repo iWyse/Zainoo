@@ -3873,6 +3873,9 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev"
             },
+            autoplay: {
+                delay: 3e3
+            },
             on: {}
         });
     }
