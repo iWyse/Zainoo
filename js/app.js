@@ -3917,35 +3917,47 @@
     window.onresize = function() {
         if (this.innerWidth > 991) if (menu.classList.contains("active")) toggleMenu();
     };
-    const popupVideo_frame = document.querySelector(".frame");
-    const video = document.querySelector(".video");
-    const src = video.dataset.src;
-    const openEls = document.querySelectorAll("[data-open]");
-    const closeEls = document.querySelectorAll("[data-close]");
-    const isVisible = "is-visible";
-    window.addEventListener("DOMContentLoaded", (function() {
-        document.querySelectorAll(".button__watch").forEach((function(clickToFrame) {
-            clickToFrame.addEventListener("click", (function(e) {
-                video.classList.add("active");
-                popupVideo_frame.classList.add("frame-active");
-                video.innerHTML = "<iframe src=" + src + ' frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    document.querySelector(".frame");
+    document.querySelectorAll("[data-open]");
+    document.querySelectorAll("[data-close]");
+    const buttonsModal = document.querySelectorAll(".open-modal");
+    const modalArr = [ {
+        src: "https://www.youtube.com/embed/aqgyhk2TGfs?autoplay=1"
+    }, {
+        src: "https://www.youtube.com/embed/X091vYnLRhE?autoplay=1"
+    }, {
+        src: "https://www.youtube.com/embed/UFFgfE72tZQ?autoplay=1"
+    } ];
+    const popupVideo_element = document.createElement("section");
+    class PopupFrame {
+        constructor(src, parentSelector) {
+            this.src = src;
+            this.parent = document.querySelector(parentSelector);
+        }
+        render() {
+            popupVideo_element.classList.add("frame");
+            popupVideo_element.classList.add("frame-active");
+            popupVideo_element.innerHTML = `\n\n\t\t <div class="modal"  data-animation="slideInOutLeft">\n\t\t\t  <div class="modal-dialog">\n\t\t\t\t\t<button class="close-modal _icon-close" aria-label="close modal" data-close></button>\n\t\t\t\t\t<section class="modal-container">\n\t\t\t\t\t\t <div class="video">\n\t\t\t\t\t\t <iframe src="${this.src}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n\t\t\t\t\t\t </div>\n\t\t\t\t\t</section>\n\t\t\t  </div>\n\t\t </div>\n\n\t\t `;
+            this.parent.append(popupVideo_element);
+            const buttonClose = document.querySelector(".close-modal");
+            buttonClose.addEventListener("click", (() => {
+                stopPopup();
             }));
+        }
+    }
+    buttonsModal.forEach((btn => {
+        btn.addEventListener("click", (e => {
+            e.preventDefault();
+            const idPopup = e.target.getAttribute("data-id");
+            new PopupFrame(modalArr[idPopup].src, "body").render();
+            document.querySelector(".modal").classList.add("is-visible");
+            document.documentElement.classList.add("lock");
+            document.querySelector(".video").classList.add("active");
         }));
     }));
     function stopPopup() {
-        document.querySelector(".modal.is-visible").classList.remove(isVisible);
-        document.documentElement.classList.remove("lock");
-        video.innerHTML = null;
-        popupVideo_frame.classList.remove("frame-active");
+        popupVideo_element.remove();
     }
-    for (const el of openEls) el.addEventListener("click", (function() {
-        const modalId = this.dataset.open;
-        document.getElementById(modalId).classList.add(isVisible);
-        document.documentElement.classList.add("lock");
-    }));
-    for (const el of closeEls) el.addEventListener("click", (function() {
-        stopPopup();
-    }));
     document.addEventListener("click", (e => {
         if (e.target === document.querySelector(".modal.is-visible")) stopPopup();
     }));
