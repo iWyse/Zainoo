@@ -3917,7 +3917,6 @@
     window.onresize = function() {
         if (this.innerWidth > 991) if (menu.classList.contains("active")) toggleMenu();
     };
-    document.querySelector(".frame");
     document.querySelectorAll("[data-open]");
     document.querySelectorAll("[data-close]");
     const buttonsModal = document.querySelectorAll(".open-modal");
