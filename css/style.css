@@ -734,7 +734,7 @@ html {
 
 .gallery__content {
   position: absolute;
-  top: 110px;
+  top: 60px;
   left: 0;
   z-index: 9999;
 }
@@ -810,6 +810,7 @@ html {
   max-width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  padding-bottom: 50px;
 }
 
 .picture-block__image {
@@ -1751,7 +1752,6 @@ button.swiper-pagination-bullet {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    padding-bottom: 50px;
   }
 }
 
@@ -1764,10 +1764,21 @@ button.swiper-pagination-bullet {
 @media (max-width: 47.99875em) {
   .search-box__input {
     position: absolute;
-    top: 75px;
     left: 2%;
     z-index: 9999;
   }
+
+@supports (top: clamp( 3.75rem , 3.4683098592rem  +  1.4084507042vw , 4.6875rem )) {
+    .search-box__input {
+      top: clamp( 3.75rem , 3.4683098592rem  +  1.4084507042vw , 4.6875rem );
+    }
+}
+
+@supports not (top: clamp( 3.75rem , 3.4683098592rem  +  1.4084507042vw , 4.6875rem )) {
+    .search-box__input {
+      top: calc(3.75rem + 0.9375 * (100vw - 20rem) / 66.5625);
+    }
+}
 
   .header__container {
     padding: 0 10px;

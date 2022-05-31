@@ -3904,7 +3904,7 @@
                 prevEl: ".swiper-button-prev"
             },
             autoplay: {
-                delay: 3e3
+                delay: 5500
             },
             on: {}
         });
@@ -4089,10 +4089,16 @@
     da.init();
     const searchButton = document.querySelector(".search-box__button");
     const searchInput = document.querySelector(".search-box__input");
-    searchButton.addEventListener("click", (function(e) {
-        searchInput.classList.toggle("search-box__input--active");
-        document.querySelector(".search-box__input").value = "";
+    document.addEventListener("click", (e => {
+        const target = e.target;
+        target === searchButton ? toggle() : target !== searchButton ? script_remove() : false;
     }));
+    function toggle() {
+        searchInput.classList.toggle("search-box__input--active");
+    }
+    function script_remove() {
+        searchInput.classList.remove("search-box__input--active");
+    }
     window["FLS"] = true;
     isWebp();
     addTouchClass();
