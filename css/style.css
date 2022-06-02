@@ -1780,10 +1780,12 @@ button.swiper-pagination-bullet {
 }
 
 @media (max-width: 340px) and (max-height: 549px) {
+  .gallery__buttons {
+    padding-bottom: 50px;
+  }
+
   .picture-block {
-    visibility: hidden;
-    max-height: 10vh;
-    padding: 0;
+    display: none;
   }
 }
 
